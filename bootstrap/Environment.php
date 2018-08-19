@@ -4,7 +4,7 @@
         private static $loaded;
 
         public static function _load() {
-            $envPath = realpath(__DIR__. "../../.env");
+            $envPath = realpath(APP_ROOT . "/.env");
             $envContents = file_get_contents($envPath);
 
             $data = explode("\n", $envContents);
