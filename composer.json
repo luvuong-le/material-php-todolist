@@ -4,7 +4,8 @@
 	},
 	"require": {
 		"twig/twig": "^2.0",
-		"slim/slim": "^3.0"
+		"slim/slim": "^3.0",
+		"slim/twig-view": "^2.4"
 	},
 	"scripts": {
 		"test": "phpunit --colors=always --verbose --bootstrap ./vendor/autoload.php tests/"
