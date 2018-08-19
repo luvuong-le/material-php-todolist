@@ -50,7 +50,7 @@ module.exports = {
         new BrowserSyncPlugin({
             host: 'localhost',
             port: 8081,
-            proxy: 'http://localhost:8080/materialtodo/public/',
+            proxy: 'http://localhost:8080/',
             files: ['./**/*'],
         })
     ]

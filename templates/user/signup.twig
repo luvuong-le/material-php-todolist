@@ -1,0 +1,26 @@
+{% extends "layout/app.twig" %}
+
+{% block title%}
+    Material Todo List - Sign Up
+{% endblock %}
+
+{% block content %}
+    <h2 class="center-align">Sign Up</h2>
+
+    <form action="#" method="POST" class="form">
+        <div class="field input-field">
+            <input id="email" type="email" name="email" class="validate">
+            <label for="email">Enter Email</label>
+        </div>
+        <div class="field input-field">
+            <input id="username" type="text" name="username" class="validate">
+            <label for="username">Username</label>
+        </div>
+        <div class="field input-field">
+            <input id="password" type="password" name="password" class="validate">
+            <label for="password">Password</label>
+        </div>
+    </form>
+
+
+{% endblock %}

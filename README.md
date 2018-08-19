@@ -13,19 +13,36 @@
 ### Technologies Used
 
 -   HTML5
--   CSS3
+-   SASS/CSS3
 -   JavaScript
--   PHP
+-   PHP / Twig
 -   Slim PHP Framework
+-   Node JS
 
 ### Practices
 
 > Makes use of TDD (Test Driven Development) and Circle CI for practicing continuous integration
 
-### Setup
+### Prerequisites
+
+> Node and npm must be installed
+
+> PHP and Composer must be installed
+
+> Must be run a server that has URL rewriting enabled
+
+### Development Setup && Notes
 
 > Run "composer install"
 
 > Rename .env.example to .evn and Enter details in file
 
-> Open up index.php
+> Run 'npm install'
+
+> Run 'npm run webpack'
+
+### Production Setup
+
+> Run "composer install"
+
+> Rename .env.example to .evn and Enter details in file

@@ -1,1 +1,16 @@
+.mt-lg {
+  margin-top: 10em !important; }
+
+.todo-collection {
+  margin: 0 1rem; }
+
+.form {
+  max-width: 500px !important;
+  margin: 0 auto; }
+
+.nav-wrapper {
+  margin: 0 1em; }
+
+.brand-logo {
+  margin: auto 1em; }
 
