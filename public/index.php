@@ -1,7 +1,8 @@
 <?php 
 
-/** Start Session */
-session_start();
+use Helpers\Session;
+
+Session::_start();
 
 /** Load Bootstrap File */
 require '../bootstrap/Bootstrap.php';
