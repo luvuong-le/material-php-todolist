@@ -1,5 +1,7 @@
 # Simple PHP To Do List Application
 
+[![Build Status](https://travis-ci.org/luvuong-le/material-php-todolist.svg?branch=master)](https://travis-ci.org/luvuong-le/material-php-todolist)
+
 ### Information about the project
 
 > Simple PHP To Do List that uses AJAX, PHP Object Oriented

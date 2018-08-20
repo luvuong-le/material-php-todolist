@@ -7,18 +7,21 @@
 {% block content %}
     <h2 class="center-align">Sign Up</h2>
 
-    <form action="#" method="POST" class="form">
+    <form action="/signup" method="POST" class="form">
         <div class="field input-field">
-            <input id="email" type="email" name="email" class="validate">
+            <input id="email" type="email" name="email" class="validate" required>
             <label for="email">Enter Email</label>
         </div>
         <div class="field input-field">
-            <input id="username" type="text" name="username" class="validate">
+            <input id="username" type="text" name="username" class="validate" required>
             <label for="username">Username</label>
         </div>
         <div class="field input-field">
-            <input id="password" type="password" name="password" class="validate">
+            <input id="password" type="password" name="password" class="validate" required>
             <label for="password">Password</label>
+        </div>
+        <div class="field input-field center">
+            <button type="submit" class="btn btn-primary">Sign Up</button>
         </div>
     </form>
 

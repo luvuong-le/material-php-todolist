@@ -7,7 +7,7 @@
 		"test": "tests"
 	},
 	"scripts": {
-		"webpack": "webpack"
+		"webpack:watch": "webpack"
 	},
 	"repository": {
 		"type": "git",
