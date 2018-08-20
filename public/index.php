@@ -2,10 +2,10 @@
 
 use Helpers\Session;
 
-Session::_start();
-
 /** Load Bootstrap File */
 require '../bootstrap/Bootstrap.php';
+
+Session::_start();
 
 /** Start the Slim Application  */
 $app->run();

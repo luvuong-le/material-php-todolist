@@ -8,6 +8,6 @@
 		"slim/twig-view": "^2.4"
 	},
 	"scripts": {
-		"test": "phpunit --colors=always --verbose --bootstrap ./bootstrap/Bootstrap.php ./tests/"
+		"test": "phpunit --colors=always --verbose --bootstrap ./vendor/autoload.php ./tests/"
 	}
 }
