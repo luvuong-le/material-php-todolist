@@ -21,7 +21,7 @@
 
 ### Practices
 
-> Makes use of TDD (Test Driven Development) and Circle CI for practicing continuous integration
+> Makes use of TDD (Test Driven Development) and Travis CI for practicing continuous integration
 
 ### Prerequisites
 
