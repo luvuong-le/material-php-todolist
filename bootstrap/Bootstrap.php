@@ -12,11 +12,13 @@ require_once APP_ROOT . '/helpers/utils.php';
 require_once APP_ROOT . '/config/Environment.php';
 Environment::_load();
 
+/** Initialize Session */
+require_once APP_ROOT . '/helpers/Session.php';
+
 /** Initialize Database */
 require_once APP_ROOT . '/database/Database.php';
 
 $db = DatabaseHandler::getInstance();
-$dbConnection = $db->getConnection();
 
 /** Initialize Models */
 require_once MODELS_PATH . '/User.php';
@@ -24,8 +26,5 @@ require_once MODELS_PATH . '/User.php';
 /** Initialize Twig Templating Engine */
 require_once APP_ROOT . '/config/Slim.php';
 require_once APP_ROOT . '/routes/web.php';
-
-/** Initialize Session */
-require_once APP_ROOT . '/helpers/Session.php';
 
 ?>

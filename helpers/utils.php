@@ -1,4 +1,7 @@
 <?php
+
+use helpers\Session;
+
 function dd($data)
 {
     echo " <style>
@@ -30,6 +33,11 @@ function dd($data)
 function env($envVariable)
 {
     return Environment::env($envVariable);
+}
+
+function isAuthenticated()
+{
+    return Session::_user('user', 'authenticated');
 }
 
 ?>

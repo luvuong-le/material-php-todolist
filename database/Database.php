@@ -48,9 +48,9 @@ class DatabaseHandler
         return $this->connection = $conn;
     }
 
-    public function getConnection()
+    public static function getConnection()
     {
-        return $this->connection;
+        return self::$instance->connection;
     }
 }
 

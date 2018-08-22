@@ -6,7 +6,12 @@
 
 {% block content %}
     <h2 class="center-align">Login</h2>
-    <form action="#" method="POST" class="form">
+    <form action="/login" method="POST" class="form">
+        <div class="field error">
+            {% for err in errors %}
+                <p>{{ err }}</p>
+            {% endfor %}
+        </div>
         <div class="field input-field">
             <input id="email" type="email" name="email" class="validate">
             <label for="email">Enter Email</label>
