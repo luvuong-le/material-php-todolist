@@ -40,12 +40,20 @@ $container['db'] = function ($c) {
 
 $container['model'] = function ($c) {
     $User = new User();
+    $Todo = new Todo();
+
     return [
-        'User' => $User
+        'User' => $User,
+        'Todo' => $Todo
     ];
 };
 
 $container['UserController'] = function ($c) {
     return new app\controllers\UserController($c);
+};
+
+$container['TodoController'] = function ($c) {
+    return new app\controllers\TodoController($c);
 }
+
 ?>

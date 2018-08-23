@@ -1,3 +1,11 @@
 .todo-collection {
-    margin: 0 1rem;
+	margin: 0 1rem;
+}
+
+.delete {
+	cursor: pointer;
+}
+
+.delete:hover {
+	opacity: 0.5;
 }

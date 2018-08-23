@@ -1,3 +1,18 @@
 .mt-lg {
 	margin-top: 10em !important;
 }
+
+.hidden {
+	height: 0;
+	overflow: hidden;
+	visibility: hidden;
+	opacity: 0;
+	margin: 0 !important;
+}
+
+.shown {
+	height: auto;
+	overflow: auto;
+	visibility: visible;
+	opacity: 1;
+}

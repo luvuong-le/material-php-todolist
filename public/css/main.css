@@ -1,6 +1,19 @@
 .mt-lg {
   margin-top: 10em !important; }
 
+.hidden {
+  height: 0;
+  overflow: hidden;
+  visibility: hidden;
+  opacity: 0;
+  margin: 0 !important; }
+
+.shown {
+  height: auto;
+  overflow: auto;
+  visibility: visible;
+  opacity: 1; }
+
 body,
 html {
   -webkit-box-sizing: border-box;
@@ -11,6 +24,12 @@ html {
 .todo-collection {
   margin: 0 1rem; }
 
+.delete {
+  cursor: pointer; }
+
+.delete:hover {
+  opacity: 0.5; }
+
 .form {
   max-width: 500px !important;
   margin: 0 auto; }
@@ -18,7 +37,10 @@ html {
 .errors {
   padding: 1em;
   margin: 2em 0em;
-  background: rgba(245, 243, 232, 0.5); }
+  background: rgba(245, 243, 232, 0.5);
+  -webkit-transition: all 0.5s linear;
+  -o-transition: all 0.5s linear;
+  transition: all 0.5s linear; }
   .errors > p {
     color: crimson;
     font-weight: bold; }

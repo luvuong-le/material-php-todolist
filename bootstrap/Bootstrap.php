@@ -26,6 +26,7 @@ require_once MODELS_PATH . '/Todo.php';
 
 require_once APP_ROOT . '/app/controllers/BaseController.php';
 require_once APP_ROOT . '/app/controllers/UserController.php';
+require_once APP_ROOT . '/app/controllers/TodoController.php';
 
 /** Initialize Twig Templating Engine */
 require_once APP_ROOT . '/config/Slim.php';

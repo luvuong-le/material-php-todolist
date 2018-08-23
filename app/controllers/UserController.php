@@ -37,11 +37,11 @@ class UserController extends BaseController
 
         $this->model['User']->create($userData['username'], $userData['email'], $userData['password']);
 
-        $userValidator = v::attribute('name', v::stringType()->length(10, 50))
+        $userValidator = v::attribute('name', v::stringType()->length(3, 50))
             ->attribute('email', v::stringType()->length(10, 50))
-            ->attribute('password', v::stringType()->length(10, 75));
+            ->attribute('password', v::stringType()->length(8, 75));
 
-        $validator->validate($this->model['User'], $userValidator, ['username', 'email', 'password']);
+        $validator->validate($this->model['User'], $userValidator, ['name', 'email', 'password']);
 
         if ($validator->getErrors()) {
             $errors['messages'] = $validator->getErrors();

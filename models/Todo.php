@@ -6,13 +6,13 @@ class Todo
     private $user_id;
     private static $table = 'todos';
 
-    public function __construct($content, $user_id)
+    public function create($content, $user_id)
     {
         $this->content = $content;
         $this->user_id = $user_id;
     }
 
-    public function create()
+    public function save()
     {
         $table = self::$table;
 
@@ -33,6 +33,61 @@ class Todo
         print_f('Error: {$stmt->err} \n');
 
         return false;
+    }
+
+    public function readAll($id)
+    {
+        $table = self::$table;
+
+        $query = "SELECT content FROM {$table} WHERE user_id = :user_id";
+
+        $stmt = DatabaseHandler::getConnection()->prepare($query);
+
+        $stmt->bindParam(':user_id', $id);
+
+        $stmt->execute();
+
+        $result = $stmt->fetchAll();
+
+        return $result;
+    }
+
+    public function exists($content)
+    {
+
+        $table = self::$table;
+
+        $query = "SELECT content FROM {$table} WHERE content = :content";
+
+        $stmt = DatabaseHandler::getConnection()->prepare($query);
+
+        $stmt->bindParam(':content', $content);
+
+        $stmt->execute();
+
+        $result = $stmt->fetch();
+
+        return ($result["content"]) ? true : false;
+    }
+
+    public function delete($content)
+    {
+        try {
+            $table = self::$table;
+
+            $query = "DELETE FROM {$table} WHERE content = :content";
+
+            $stmt = DatabaseHandler::getConnection()->prepare($query);
+
+            $stmt->bindParam(':content', $content);
+
+            $stmt->execute();
+
+            return 'Deleted Successfully';
+
+        } catch (PDOException $e) {
+            return $e->getMessage();
+        }
     }
 
 }
