@@ -1,6 +1,8 @@
 <?php 
 
-// namespace Models;
+namespace Models;
+
+use DatabaseHandler;
 
 class User
 {
@@ -8,13 +10,6 @@ class User
     private $email;
     private $password;
     private static $table = "users";
-
-    // public function __construct($name, $email, $password)
-    // {
-    //     $this->name = $name;
-    //     $this->email = $email;
-    //     $this->password = self::hashPassword($password);
-    // }
 
     public static function hashPassword($password)
     {

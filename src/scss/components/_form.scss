@@ -2,3 +2,14 @@
 	max-width: 500px !important;
 	margin: 0 auto;
 }
+
+.errors {
+	padding: 1em;
+	margin: 2em 0em;
+	background: rgba(245, 243, 232, 0.5);
+
+	& > p {
+		color: crimson;
+		font-weight: bold;
+	}
+}

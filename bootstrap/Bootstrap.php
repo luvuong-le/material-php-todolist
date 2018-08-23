@@ -18,8 +18,7 @@ require_once APP_ROOT . '/helpers/Session.php';
 
 /** Initialize Database */
 require_once APP_ROOT . '/database/Database.php';
-
-$db = DatabaseHandler::getInstance();
+DatabaseHandler::getInstance();
 
 /** Initialize Models */
 require_once MODELS_PATH . '/User.php';

@@ -15,7 +15,7 @@ $app->get('/logout', UserController::class . ':logout');
 
 $app->get('/login', UserController::class . ':login');
 
-$app->post('/signup', UserContoller::class . ':signup');
+$app->post('/signup', 'UserController:signup');
 
 $app->post('/login', 'UserController:postLogin');
 ?>

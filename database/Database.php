@@ -1,5 +1,6 @@
 <?php
 
+
 class DatabaseHandler
 {
     private $connection;

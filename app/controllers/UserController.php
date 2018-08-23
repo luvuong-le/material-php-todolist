@@ -2,6 +2,8 @@
 
 namespace app\controllers;
 
+use Respect\Validation\Validator as v;
+use App\Validation\Validator;
 use Helpers\Session;
 
 class UserController extends BaseController
@@ -22,11 +24,39 @@ class UserController extends BaseController
     {
         $userData = $request->getParsedBody();
 
-        $newUser = $this->model['User']->create($userData['username'], $userData['email'], $userData['password']);
+        $errors = array(
+            'messages' => []
+        );
 
-        $newUser->create();
+        if ($this->model['User']::emailExists($userData)) {
+            $errors['messages']['email'] = "This email already exists!";
+            return $this->view->render($response, 'user/signup.twig', $errors);
+        }
 
-        return $response->withStatus(200)->withHeader('Location', '/');
+        $validator = new Validator();
+
+        $this->model['User']->create($userData['username'], $userData['email'], $userData['password']);
+
+        $userValidator = v::attribute('name', v::stringType()->length(10, 50))
+            ->attribute('email', v::stringType()->length(10, 50))
+            ->attribute('password', v::stringType()->length(10, 75));
+
+        $validator->validate($this->model['User'], $userValidator, ['username', 'email', 'password']);
+
+        if ($validator->getErrors()) {
+            $errors['messages'] = $validator->getErrors();
+            return $this->view->render($response, 'user/signup.twig', $errors);
+        }
+
+        $this->model['User']->save();
+
+        Session::_set('user', array(
+            'authenticated' => true,
+            'id' => $this->model['User']::get('id', $userData),
+            'email' => $this->model['User']::get('email', $userData)
+        ));
+
+        return $response->withStatus(200)->withHeader('Location', '/profile');
     }
 
     public function login($request, $response, $args)
@@ -53,10 +83,12 @@ class UserController extends BaseController
     {
         $userData = $request->getParsedBody();
 
+        $errors = array(
+            'messages' => []
+        );
+
         if (!$this->model['User']::emailExists($userData)) {
-            return $this->view->render($response, 'user/login.twig', array(
-                'errors' => 'Email does not exist'
-            ));
+            $errors['messages']['email'] = "This email does not exist!";
         }
 
         if ($this->model['User']::verifyPassword($userData)) {
@@ -70,9 +102,8 @@ class UserController extends BaseController
         // Redirect
             return $response->withStatus(200)->withHeader('Location', '/profile');
         } else {
-            return $this->view->render($response, 'user/login.twig', array(
-                'errors' => 'Incorrect Password'
-            ));
+            $errors['messages']['password'] = "This password is incorrect!";
+            return $this->view->render($response, 'user/login.twig', $errors);
         }
     }
 }

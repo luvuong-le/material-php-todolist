@@ -1,7 +1,7 @@
 <?php
 
-// use Models\User;
-require __DIR__ . '../../models/User.php';
+use Models\User;
+
 use PHPUnit\Framework\TestCase;
 
 final class UserTest extends TestCase

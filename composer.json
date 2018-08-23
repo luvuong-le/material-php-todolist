@@ -4,9 +4,17 @@
 	},
 	"require": {
 		"slim/slim": "^3.0",
-		"slim/twig-view": "^2.4"
+		"slim/twig-view": "^2.4",
+		"respect/validation": "^1.1"
 	},
 	"scripts": {
 		"test": "phpunit --colors=always --verbose --bootstrap ./vendor/autoload.php ./tests/"
+	},
+	"autoload": {
+		"psr-4": {
+			"Models\\": "./models",
+			"App\\Validation\\": "./app/Validation",
+			"Database\\": "./database"
+		}
 	}
 }

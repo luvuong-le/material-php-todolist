@@ -1,4 +1,7 @@
 <?php
+
+use Models\User;
+
 $config = ['settings' => [
     'addContentLengthHeader' => false,
     'displayErrorDetails' => true, // set to false in production
