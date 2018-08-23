@@ -12,6 +12,11 @@ module.exports = {
         path: path.resolve(__dirname, 'public/js')
     },
     mode: 'development',
+    resolve: {
+        alias: {
+            '@': path.resolve(__dirname, '/src') 
+        }
+    },
     module: {
         rules: [{
             test: /\.scss$/,

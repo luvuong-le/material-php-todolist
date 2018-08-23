@@ -2,71 +2,20 @@
 
 use Slim\Http\Request;
 use Slim\Http\Response;
-// use Models\User;
 
 use Helpers\Session;
+use app\controllers\UserController;
 
-$app->get('/', function (Request $request, Response $response, array $args) {
-    if (isAuthenticated()) {
-        return $this->view->render($response, 'home.twig', array(
-            'authenticated' => isAuthenticated(),
-            'email' => Session::_user('user', 'email'),
-            'id' => Session::_user('user', 'id')
-        ));
-    }
-    return $this->view->render($response, 'user/signup.twig');
-});
 
-$app->get('/user/{id}', function (Request $request, Response $response, array $args) {
-    return $this->view->render($response, 'home.twig', array(
-        'authenticated' => isAuthenticated(),
-        'email' => Session::_user('user', 'email'),
-        'id' => Session::_user('user', 'id')
-    ));
-});
+$app->get('/', UserController::class . ':index');
 
-$app->get('/logout', function (Request $request, Response $response, array $args) {
-    Session::_unset('user');
-    return $response->withStatus(200)->withHeader('Location', '/login');
-});
+$app->get('/profile', UserController::class . ':profile');
 
-$app->get('/login', function (Request $request, Response $response, array $args) {
-    return $this->view->render($response, 'user/login.twig');
-});
+$app->get('/logout', UserController::class . ':logout');
 
-$app->post('/signup', function (Request $request, Response $response, array $args) {
-    $userData = $request->getParsedBody();
+$app->get('/login', UserController::class . ':login');
 
-    $newUser = new User($userData['username'], $userData['email'], $userData['password']);
+$app->post('/signup', UserContoller::class . ':signup');
 
-    $newUser->create();
-
-    return $response->withStatus(200)->withHeader('Location', '/');
-});
-
-$app->post('/login', function (Request $request, Response $response, array $args) {
-    $userData = $request->getParsedBody();
-
-    if (!User::emailExists($userData)) {
-        return $this->view->render($response, 'user/login.twig', array(
-            'errors' => 'Email does not exist'
-        ));
-    }
-
-    if (User::verifyPassword($userData)) {
-        // Set a session variable to keep track of logged in user
-        Session::_set('user', array(
-            'authenticated' => true,
-            'id' => User::get('id', $userData),
-            'email' => User::get('email', $userData)
-        ));
-
-        // Redirect
-        return $response->withStatus(200)->withHeader('Location', '/user/' . User::get('id', $userData));
-    } else {
-        return $this->view->render($response, 'user/login.twig', array(
-            'errors' => 'Incorrect Password'
-        ));
-    }
-});
+$app->post('/login', 'UserController:postLogin');
 ?>

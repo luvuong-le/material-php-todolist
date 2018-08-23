@@ -37,7 +37,9 @@ function env($envVariable)
 
 function isAuthenticated()
 {
-    return Session::_user('user', 'authenticated');
+    if (Session::_user('user', 'authenticated')) {
+        return Session::_user('user', 'authenticated');
+    }
 }
 
 ?>

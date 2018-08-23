@@ -9,12 +9,12 @@ class User
     private $password;
     private static $table = "users";
 
-    public function __construct($name, $email, $password)
-    {
-        $this->name = $name;
-        $this->email = $email;
-        $this->password = self::hashPassword($password);
-    }
+    // public function __construct($name, $email, $password)
+    // {
+    //     $this->name = $name;
+    //     $this->email = $email;
+    //     $this->password = self::hashPassword($password);
+    // }
 
     public static function hashPassword($password)
     {
@@ -28,7 +28,14 @@ class User
         return $this->password;
     }
 
-    public function create()
+    public function create($name, $email, $password)
+    {
+        $this->name = $name;
+        $this->email = $email;
+        $this->password = self::hashPassword($password);
+    }
+
+    public function save()
     {
         $table = self::$table;
 

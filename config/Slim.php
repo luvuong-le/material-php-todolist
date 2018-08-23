@@ -29,8 +29,20 @@ $container['view'] = function ($container) {
     return $view;
 };
 
-// Register provider
-$container['flash'] = function () {
-    return new \Slim\Flash\Messages();
+$container['db'] = function ($c) {
+    $db = DatabaseHandler::getInstance();
+    $dbConnection = DatabaseHandler::getConnection();
+    return $dbConnection;
 };
+
+$container['model'] = function ($c) {
+    $User = new User();
+    return [
+        'User' => $User
+    ];
+};
+
+$container['UserController'] = function ($c) {
+    return new app\controllers\UserController($c);
+}
 ?>

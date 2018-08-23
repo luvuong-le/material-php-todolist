@@ -94,7 +94,7 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\n\n__webpack_require__(/*! ../scss/main.scss */ \"./src/scss/main.scss\");\n\n//# sourceURL=webpack:///./src/js/app.js?");
+eval("\n\n__webpack_require__(/*! ../scss/main.scss */ \"./src/scss/main.scss\");\n\nvar todos = document.getElementById('todo-list');\n\nvar todoForm = document.getElementById('todo-form');\n\nvar todoInput = document.getElementById('todo-input');\n\ntodoForm.addEventListener('submit', function (e) {\n    e.preventDefault();\n\n    if (todoInput.value !== '') {\n        // * Create a fetch post request \n        fetch('http://localhost:8081/api/todo/create', {\n            method: 'POST',\n            headers: {\n                'Accept': 'application/json',\n                'Content-Type': 'application/json; charset=utf-8'\n            },\n            body: JSON.stringify({ content: todoInput.value })\n        }).then(function (res) {\n            return res.json();\n        }).then(function (res) {\n            console.log(res);\n            createTodoItem(todoInput.value);\n        });\n    }\n});\n\nfunction createTodoItem(content) {\n    var todoItem = document.createElement('li');\n    todoItem.setAttribute('class', 'collection-item');\n    todoItem.textContent = content;\n\n    var link = document.createElement('a');\n    link.setAttribute('class', 'secondary-content');\n\n    var icon = document.createElement('i');\n    icon.setAttribute('class', 'material-icons');\n    icon.textContent = 'send';\n\n    link.appendChild(icon);\n\n    todoItem.appendChild(link);\n\n    todos.appendChild(todoItem);\n\n    // todoInput.value = \"\";\n}\n\n//# sourceURL=webpack:///./src/js/app.js?");
 
 /***/ }),
 

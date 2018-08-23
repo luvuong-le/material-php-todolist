@@ -3,7 +3,7 @@
         <div class="brand-logo">MList</div>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
             {% if authenticated %}
-                <li><a href="/user/{{id}}">{{ email }}</a></li>
+                <li><a href="/profile">{{ email }}</a></li>
                 <li><a href="/logout">Logout</a></li>
             {% else %}
                 <li><a href="/">Sign Up</a></li>

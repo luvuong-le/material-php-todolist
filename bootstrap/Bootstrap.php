@@ -6,6 +6,7 @@ DEFINE("MODELS_PATH", realpath(APP_ROOT . '/models'));
 
 /** Import Utility Functions */
 require_once APP_ROOT . '/vendor/autoload.php';
+
 require_once APP_ROOT . '/helpers/utils.php';
 
 /** Initialize Classes */
@@ -22,9 +23,14 @@ $db = DatabaseHandler::getInstance();
 
 /** Initialize Models */
 require_once MODELS_PATH . '/User.php';
+require_once MODELS_PATH . '/Todo.php';
+
+require_once APP_ROOT . '/app/controllers/BaseController.php';
+require_once APP_ROOT . '/app/controllers/UserController.php';
 
 /** Initialize Twig Templating Engine */
 require_once APP_ROOT . '/config/Slim.php';
 require_once APP_ROOT . '/routes/web.php';
+require_once APP_ROOT . '/routes/api.php';
 
 ?>

@@ -26,7 +26,10 @@ class Session
 
     public static function _user($var, $field)
     {
-        return $_SESSION[$var][$field];
+        if (count($_SESSION) !== 0 && $_SESSION[$var]) {
+            return $_SESSION[$var][$field];
+        }
+
     }
 
     public static function _unset($name)
