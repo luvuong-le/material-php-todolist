@@ -19,7 +19,9 @@
 -   JavaScript
 -   PHP / Twig
 -   Slim PHP Framework
--   Node JS
+-   Node JS / Webpack
+-   PHPUnit
+-   Travis CI
 
 ### Practices
 
@@ -31,20 +33,24 @@
 
 > PHP and Composer must be installed
 
+> Set your document root to the public directory
+
 > Must be run a server that has URL rewriting enabled
 
 ### Development Setup && Notes
 
 > Run "composer install"
 
-> Rename .env.example to .evn and Enter details in file
+> Rename .env.example to .evn and enter details in file
 
 > Run 'npm install'
 
-> Run 'npm run webpack'
+> Run 'npm run webpack:watch'
 
 ### Production Setup
 
 > Run "composer install"
 
-> Rename .env.example to .evn and Enter details in file
+> Run "npm run webpack:build"
+
+> Rename .env.example to .evn and enter details in file

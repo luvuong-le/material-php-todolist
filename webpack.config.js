@@ -3,7 +3,6 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const BrowserSyncPlugin = require("browser-sync-webpack-plugin");
 
 module.exports = {
-    watch: true,
     entry: [
         './src/js/app.js',
     ],
@@ -11,7 +10,6 @@ module.exports = {
         filename: 'bundle.js',
         path: path.resolve(__dirname, 'public/js')
     },
-    mode: 'development',
     resolve: {
         alias: {
             '@': path.resolve(__dirname, '/src') 
@@ -25,7 +23,7 @@ module.exports = {
                 {
                     loader: "css-loader",
                     options: {
-                        minimize: false,
+                        minimize: true,
                     }
                 },
                 {
