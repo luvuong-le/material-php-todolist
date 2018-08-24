@@ -90,6 +90,27 @@ class Todo
         }
     }
 
+    public function edit($newContent, $oldContent)
+    {
+        try {
+            $table = self::$table;
+
+            $query = "UPDATE {$table} SET content = :newContent WHERE content = :oldContent";
+
+            $stmt = DatabaseHandler::getConnection()->prepare($query);
+
+            $stmt->bindParam(':newContent', $newContent);
+            $stmt->bindParam(':oldContent', $oldContent);
+
+            $stmt->execute();
+
+            return 'Updated Successfully';
+
+        } catch (PDOException $e) {
+            return $e->getMessage();
+        }
+    }
+
 }
 
 ?>

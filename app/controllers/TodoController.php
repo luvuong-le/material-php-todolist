@@ -57,6 +57,20 @@ class TodoController extends BaseController
         );
     }
 
+    public function edit($request, $response, $args)
+    {
+        $userData = $request->getParsedBody();
+
+        $this->model['Todo']->edit($userData['newContent'], $userData['oldContent']);
+
+        return json_encode(
+            array(
+                'message' => 'Todo Updated',
+                'data' => $userData
+            )
+        );
+    }
+
 }
 
 ?>

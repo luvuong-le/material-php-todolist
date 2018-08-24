@@ -10,4 +10,6 @@ $app->post('/api/todo/create', TodoController::class . ':create');
 
 $app->post('/api/todo/delete', TodoController::class . ':delete');
 
+$app->post('/api/todo/edit', TodoController::class . ':edit');
+
 ?>

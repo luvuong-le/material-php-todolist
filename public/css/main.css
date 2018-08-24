@@ -24,10 +24,15 @@ html {
 .todo-collection {
   margin: 0 1rem; }
 
-.delete {
+.secondary-content {
+  margin: 0 15px; }
+
+.delete,
+.edit {
   cursor: pointer; }
 
-.delete:hover {
+.delete:hover,
+.edit:hover {
   opacity: 0.5; }
 
 .form {
