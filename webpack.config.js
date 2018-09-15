@@ -1,6 +1,8 @@
 const path = require('path');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const BrowserSyncPlugin = require("browser-sync-webpack-plugin");
+const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+
 
 module.exports = {
     entry: [
@@ -50,6 +52,7 @@ module.exports = {
         new MiniCssExtractPlugin({
             filename: "../css/main.css",
         }),
+        new OptimizeCssAssetsPlugin({}),
         new BrowserSyncPlugin({
             host: 'localhost',
             port: 8081,

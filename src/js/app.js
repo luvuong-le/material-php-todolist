@@ -66,33 +66,6 @@ document.addEventListener('DOMContentLoaded', function() {
 				for (let todo of res.data) {
 					createTodoItem(todo.content);
 				}
-
-				const todoDeleteButtons = document.querySelectorAll('.delete');
-
-				todoDeleteButtons.forEach(todo => {
-					todo.addEventListener('click', e => {
-						fetch('http://localhost:8081/api/todo/delete', {
-							method: 'POST',
-							headers: {
-								Accept: 'application/json',
-								'Content-Type': 'application/json; charset=utf-8',
-							},
-							body: JSON.stringify({
-								content: e.target.parentElement.parentElement.children[0].textContent,
-							}),
-						})
-							.then(res => {
-								return res.json();
-							})
-							.then(res => {
-								console.log(res);
-
-								/** Delete from HTML */
-								// let index = Array.from(todoDeleteButtons).findIndex(element => element === e.target);
-								todos.removeChild(e.target.parentElement.parentElement);
-							});
-					});
-				});
 			});
 	}
 
@@ -144,9 +117,32 @@ document.addEventListener('DOMContentLoaded', function() {
 		let link = document.createElement('a');
 		link.setAttribute('class', 'secondary-content');
 
-		let icon = document.createElement('i');
-		icon.setAttribute('class', 'material-icons delete');
-		icon.textContent = 'delete';
+		let linkDelete = document.createElement('i');
+		linkDelete.setAttribute('class', 'material-icons delete');
+		linkDelete.textContent = 'delete';
+
+		linkDelete.addEventListener('click', (e) => {
+			fetch('http://localhost:8081/api/todo/delete', {
+				method: 'POST',
+				headers: {
+					Accept: 'application/json',
+					'Content-Type': 'application/json; charset=utf-8',
+				},
+				body: JSON.stringify({
+					content: e.target.parentElement.parentElement.children[0].textContent,
+				}),
+			})
+				.then(res => {
+					return res.json();
+				})
+				.then(res => {
+					console.log(res);
+
+					/** Delete from HTML */
+					// let index = Array.from(todoDeleteButtons).findIndex(element => element === e.target);
+					todos.removeChild(e.target.parentElement.parentElement);
+				});
+		})
 
 		let linkEdit = document.createElement('a');
 		linkEdit.setAttribute('href', '#editModal');
@@ -161,7 +157,7 @@ document.addEventListener('DOMContentLoaded', function() {
 		iconEdit.setAttribute('class', 'material-icons edit');
 		iconEdit.textContent = 'edit';
 
-		link.appendChild(icon);
+		link.appendChild(linkDelete);
 		linkEdit.appendChild(iconEdit);
 
 		todoItem.appendChild(todoText);
