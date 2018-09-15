@@ -1,6 +1,8 @@
 # 📝 Simple PHP Material To Do List 📝
 
 [![Build Status](https://travis-ci.org/luvuong-le/material-php-todolist.svg?branch=master)](https://travis-ci.org/luvuong-le/material-php-todolist)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
 ![Material To Do List Demo](/src/images/mtodo.gif)
 
